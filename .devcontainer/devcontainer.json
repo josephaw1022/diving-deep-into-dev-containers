@@ -18,7 +18,8 @@
 		"esbenp.prettier-vscode",
 		"donjayamanne.git-extension-pack",
 		"redhat.vscode-xml",
-		"GitHub.copilot"
+		"GitHub.copilot",
+		"spmeesseman.vscode-taskexplorer"
 	]
     }
   },

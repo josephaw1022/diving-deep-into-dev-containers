@@ -18,4 +18,5 @@ public class RandomController : Controller
     {
         return View("Home");
     }
+    
 }
