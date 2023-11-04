@@ -1,0 +1,83 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Add EF Core Migration",
+            "type": "shell",
+            "command": "dotnet",
+            "args": [
+                "ef",
+                "migrations",
+                "add",
+                "${input:name}",
+                "-c",
+                "${input:context}",
+                "--startup-project",
+                "${input:startupProject}",
+                "--project",
+                "${input:dbProject}"
+            ],
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "Update Database",
+            "type": "shell",
+            "command": "dotnet",
+            "args": [
+                "ef",
+                "database",
+                "update",
+                "-c",
+                "${input:context}",
+                "--startup-project",
+                "${input:startupProject}",
+                "--project",
+                "${input:dbProject}"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "name",
+            "type": "promptString",
+            "description": "Name of the migration:"
+        },
+        {
+            "id": "context",
+            "type": "pickString",
+            "description": "DbContext:",
+            "options": [
+                "AuthDatabaseContext"
+            ],
+            "default": "AuthDatabaseContext"
+        },
+        {
+            "id": "startupProject",
+            "type": "pickString",
+            "description": "Startup project:",
+            "options": [
+                "simplewebapi"
+            ],
+            "default": "simplewebapi"
+        },
+        {
+            "id": "dbProject",
+            "type": "pickString",
+            "description": "DB project:",
+            "options": [
+                "auth-db"
+            ],
+            "default": "auth-db"
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Dev Container Spike - Medium",
+  "dockerComposeFile": "docker-compose.yaml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+		"streetsidesoftware.code-spell-checker",
+		"ms-dotnettools.csdevkit",
+		"ms-dotnettools.csharp",
+		"esbenp.prettier-vscode",
+		"donjayamanne.git-extension-pack",
+		"redhat.vscode-xml",
+		"GitHub.copilot"
+	]
+    }
+  },
+  "portsAttributes": {
+    "5181": {
+      "label": "Web Api App",
+      "protocol": "http"
+    },
+    "5432": {
+      "label": "Postgres",
+      "protocol": "tcp"
+    }
+  },
+  "forwardPorts": [
+    5181,
+    5432
+  ],
+  "postCreateCommand": "dotnet restore"
+}
