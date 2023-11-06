@@ -2,23 +2,26 @@ version: "3"
 
 services:
   app:
-    image: mcr.microsoft.com/devcontainers/dotnet:7.0
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ..:/workspace:cached
     command: sleep infinity
 
+    privileged: true
   db:
-    image: postgres:16-alpine
+    image: postgres:15-alpine
     restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: JoeMontana2024
       POSTGRES_DB: dev-container-db
       POSTGRES_USER: josephaw1022
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data2:/var/lib/postgresql/data
 
     ports:
       - 5432:5432
 
 volumes:
-  db_data:
+  db_data2:

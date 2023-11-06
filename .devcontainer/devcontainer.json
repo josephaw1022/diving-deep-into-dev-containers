@@ -6,21 +6,23 @@
   "features": {
     "ghcr.io/devcontainers/features/git:1": {
       "version": "latest"
-    }
+    },
+    "ghcr.io/robbert229/devcontainer-features/postgresql-client:1": {}
   },
   "customizations": {
     "vscode": {
       "settings": {},
       "extensions": [
-		"streetsidesoftware.code-spell-checker",
-		"ms-dotnettools.csdevkit",
-		"ms-dotnettools.csharp",
-		"esbenp.prettier-vscode",
-		"donjayamanne.git-extension-pack",
-		"redhat.vscode-xml",
-		"GitHub.copilot",
-		"spmeesseman.vscode-taskexplorer"
-	]
+        "streetsidesoftware.code-spell-checker",
+        "ms-dotnettools.csdevkit",
+        "ms-dotnettools.csharp",
+        "esbenp.prettier-vscode",
+        "donjayamanne.git-extension-pack",
+        "redhat.vscode-xml",
+        "GitHub.copilot",
+        "spmeesseman.vscode-taskexplorer",
+        "ms-azuretools.vscode-docker"
+      ]
     }
   },
   "portsAttributes": {

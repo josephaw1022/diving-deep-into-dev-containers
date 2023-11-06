@@ -37,12 +37,26 @@
             ],
             "problemMatcher": [],
             "group": {
-                "kind": "build",
+                "kind": "none",
                 "isDefault": true
             },
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"
+            }
+        },
+       {
+            "label": "Backup Database",
+            "type": "shell",
+            "command": "./scripts/backup_db.sh",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": [],
+            "runOptions": {
+                "runOn": "folderOpen"
             }
         }
     ],
@@ -78,6 +92,18 @@
                 "auth-db"
             ],
             "default": "auth-db"
+        },
+        {
+            "id": "dbName",
+            "type": "promptString",
+            "description": "Name of the database to backup:",
+            "default": "dev-container-db"
+        },
+        {
+            "id": "dateTime",
+            "type": "promptString",
+            "description": "Enter the date-time string for the backup filename:",
+            "default": "YYYYMMDDHHMM"
         }
     ]
 }
