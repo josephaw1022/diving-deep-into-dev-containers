@@ -6,6 +6,6 @@ public class AuthDatabaseContext : DbContext
     public AuthDatabaseContext(DbContextOptions<AuthDatabaseContext> options) : base(options) { }
 
     //* Tables 
-    public DbSet<AuthUser> Users { get; set; } = null!;
+    public DbSet<AuthUser> AuthUsers { get; set; } = null!;
     public DbSet<Session> Sessions { get; set; } = null!;
 }

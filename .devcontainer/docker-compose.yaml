@@ -8,8 +8,8 @@ services:
     volumes:
       - ..:/workspace:cached
     command: sleep infinity
-
     privileged: true
+
   db:
     image: postgres:15-alpine
     restart: unless-stopped
@@ -19,9 +19,38 @@ services:
       POSTGRES_USER: josephaw1022
     volumes:
       - db_data2:/var/lib/postgresql/data
-
     ports:
       - 5432:5432
 
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite
+    ports:
+      - "10000:10000"
+      - "10001:10001"
+      - "10002:10002"
+    volumes:
+      - azurite-data:/data
+    restart: always
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-alpine-data:/data
+    restart: always
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"  # Port for management UI
+      - "5672:5672"    # Port for RabbitMQ server
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    restart: always
+
 volumes:
   db_data2:
+  azurite-data:
+  redis-alpine-data:
+  rabbitmq-data:
